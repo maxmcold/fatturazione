@@ -11,4 +11,6 @@ defined('_JEXEC') or die('Restricted access');
  */
 class FatturazioneController extends JControllerLegacy
 {
+
+	//test
 }
