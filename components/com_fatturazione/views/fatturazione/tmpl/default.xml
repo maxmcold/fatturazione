@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<layout title="COM_HELLOWORLD_HELLOWORLD_VIEW_DEFAULT_TITLE">
+		<message>COM_HELLOWORLD_HELLOWORLD_VIEW_DEFAULT_DESC</message>
+	</layout>
+	<fields name="request">
+		<fieldset name="request">
+			<field
+					name="id"
+					type="list"
+					label="COM_FATTURAZIONE_FIELD_GREETING_LABEL"
+					description="COM_FATTURAZIONE_FIELD_GREETING_DESC"
+					default="1">
+                                <option value="1">Welcome to Fatturazione</option>
+                                <option value="2">Fuck fatturazione!</option>
+            </field>
+		</fieldset>
+	</fields>
+</metadata>
