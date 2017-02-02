@@ -11,7 +11,7 @@
 					label="COM_FATTURAZIONE_FIELD_GREETING_LABEL"
 					description="COM_FATTURAZIONE_FIELD_GREETING_DESC"
 					default="1">
-                                <option value="1">Welcome to Fatturazione</option>
+                                <option value="1">real time change?</option>
                                 <option value="2">Fuck fatturazione!</option>
             </field>
 		</fieldset>
