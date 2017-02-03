@@ -3,17 +3,17 @@
 	<layout title="COM_HELLOWORLD_HELLOWORLD_VIEW_DEFAULT_TITLE">
 		<message>COM_HELLOWORLD_HELLOWORLD_VIEW_DEFAULT_DESC</message>
 	</layout>
-	<fields name="request">
+	<fields 
+		name="request"
+		addfieldpath="/administrator/components/com_helloworld/models/fields"
+		>
 		<fieldset name="request">
 			<field
 					name="id"
-					type="list"
-					label="COM_FATTURAZIONE_FIELD_GREETING_LABEL"
-					description="COM_FATTURAZIONE_FIELD_GREETING_DESC"
-					default="1">
-                                <option value="1">real time change?</option>
-                                <option value="2">Fuck fatturazione!</option>
-            </field>
+					type="Fatturazione"
+					label="COM_FATTURAZIONE_FIELD_ID"
+					description="COM_FATTURAZIONE_FIELD_CODICE_FATTURA"
+					/>
 		</fieldset>
 	</fields>
 </metadata>
