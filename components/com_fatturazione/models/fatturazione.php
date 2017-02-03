@@ -57,7 +57,7 @@ class FatturazioneModelFatturazione extends JModelItem
 			$table->load($id);
 	
 			// Assign the message
-			$this->messages[$id] = $table->greeting;
+			$this->messages[$id] = $table->codice_fattura;
 		}
 	
 		return $this->messages[$id];
