@@ -25,5 +25,9 @@ Mese:<br/>
 
 <?php 
 
-echo $this->ListaFatture;
-?>
+var_dump($this->ListaFatture);
+
+foreach ($this->ListaFatture as $fattura){ ?>
+<a href="index.php?option=com_fatturazione&task=dettaglio&id=<?php echo $fattura['id']?>"><?php echo $fattura['mese']?> / <?php echo $fattura['anno']?></a><br/>
+	
+<?php }?>

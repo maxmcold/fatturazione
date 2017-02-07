@@ -9,7 +9,7 @@ defined('_JEXEC') or die('Restricted access');
 JFormHelper::loadFieldClass('list');
 
 /**
- * HelloWorld Form Field class for the HelloWorld component
+ * Fatturazione Form Field class for the Fatturazione component
  *
  * @since  0.0.1
  */
@@ -20,7 +20,7 @@ class JFormFieldFatturazione extends JFormFieldList
 	 *
 	 * @var         string
 	 */
-	protected $type = 'HelloWorld';
+	protected $type = 'Fatturazione';
 
 	/**
 	 * Method to get a list of options for a list input.

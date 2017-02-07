@@ -12,7 +12,7 @@ defined('_JEXEC') or die('Restricted access');
  *
  * @since  0.0.1
  */
-class FatturazioneViewFatturazione extends JViewLegacy
+class FatturazioneViewLista extends JViewLegacy
 {
 
 	/**
