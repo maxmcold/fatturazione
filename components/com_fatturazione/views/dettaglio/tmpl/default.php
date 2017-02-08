@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
 <p><?php 
 var_dump($this->Fattura);
 
-JLoader::register('FPDF', JPATH_LIBRARIES . '/fpdfmy/FPDF.php');
+JLoader::register('FPDF', JPATH_LIBRARIES.'/fpdfmy/FPDF.php');
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
