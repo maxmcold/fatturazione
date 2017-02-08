@@ -16,7 +16,8 @@ class FatturazioneModelFatture extends JModelItem
 		// Return the Hello
 		return $result;
 	}
-	public function getFattura($id =0){
+	public function getFattura($id){
+		
 		if (!$id){
 			JFactory::getApplication()->enqueueMessage(JText::_('Fattura richiesta non trovata'), 'error');
 			return false;
@@ -33,7 +34,6 @@ class FatturazioneModelFatture extends JModelItem
 			JFactory::getApplication()->enqueueMessage(JText::_('Fattura richiesta non trovata'), 'error');
 			return false;
 		}
-		// Return the Hello
 		return $result;
 	}
 }

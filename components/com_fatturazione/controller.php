@@ -24,11 +24,11 @@ class FatturazioneController extends JControllerLegacy
 		$view->display();
 			
 	}
-	public function dettaglioFattura($id = 0){
-		if (!$id){
-			JFactory::getApplication()->enqueueMessage(JText::_('Fattura richiesta non trovata'), 'error');
-			return false;
-		}
+	public function dettaglioFattura($cachable = false, $urlparams = false){
+		$model = $this->getModel('fatture');
+		$view = $this->getView('dettaglio','html');
+		$view->setModel($model);
+		$view->display();
 		
 	}
 	
