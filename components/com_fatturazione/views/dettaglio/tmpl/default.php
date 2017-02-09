@@ -17,13 +17,13 @@ defined('_JEXEC') or die('Restricted access');
 var_dump($this->Fattura);
 
 JLoader::register('FPDF', JPATH_LIBRARIES.'/fpdfmy/FPDF.php');
+/*
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
 $pdf->Cell(40,10,'Hello World!');
-
+$pdf->Output();
+*/
 ?>
 <iframe src="http://docs.google.com/gview?url=http://example.com/mypdf.pdf&embedded=true" style="width:718px; height:700px;" frameborder="0">
-<?php $pdf->Output();
-?>
 </iframe>
