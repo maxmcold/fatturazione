@@ -31,5 +31,11 @@ class FatturazioneController extends JControllerLegacy
 		$view->display();
 		
 	}
+	public function preparaFattura($cachable = false, $urlparams = false){
+		
+	}
+	public function save($cachable = false, $urlparams = false){
+		
+	}
 	
 }
