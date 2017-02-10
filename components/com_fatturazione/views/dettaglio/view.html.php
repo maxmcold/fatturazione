@@ -36,9 +36,6 @@ class FatturazioneViewDettaglio extends JViewLegacy
 		if($this->Fattura){
 			JLoader::register('FPDF', JPATH_LIBRARIES.'/fpdfmy/FPDF.php');
 			$pdf = new FPDF();
-			$pdf->AddPage();
-			$pdf->SetFont('Arial','B',16);
-			$pdf->Cell(40,10,'ciccio bacicchio!');
 			$pdf->Output('F',JPATH_COMPONENT .'/test.pdf');//.$this->Fattura->filename);
 		}
 		// Display the view

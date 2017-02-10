@@ -20,3 +20,9 @@ foreach ($this->ListaFatture as $fattura){ ?>
 <a href="index.php?option=com_fatturazione&task=dettaglioFattura&id=<?php echo $fattura['id']?>"><?php echo $fattura['mese']?> / <?php echo $fattura['anno']?></a><br/>
 	
 <?php }?>
+<p>crea una nuova fattura<form action="index.php?option=com_fatturazione&task=save">
+<p><input type='text' name='mese'>
+<p><input type='text' name='anno'>
+<p><input type='submit' name='send'>
+
+</form>

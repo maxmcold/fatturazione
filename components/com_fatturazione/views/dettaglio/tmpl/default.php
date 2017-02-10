@@ -14,13 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 <p><a href="?option=com_fatturazione&task=list">lista fatture</a>
 <p><a href="?option=com_fatturazione&task=new">nuova fattura</a>
 <p><?php 
-//var_dump($this->Fattura);
-
-echo JURI::base(true);
+//r_dump($this->Fattura);
 ?>
 
-<iframe style="width:718px; height:700px;" frameborder="0">
-<object data="<?php echo JPATH_COMPONENT.'/test.pdf'?>" type="application/pdf" width="100%" height="100%">
-  <p>Alternative text - include a link <a href="myfile.pdf">to the PDF!</a></p>
-</object>
-</iframe>
+
+<object data="<?php echo JURI::base(false).'components/com_fatturazione/test.pdf'?>" type="application/pdf" width="100%" height="500">
+  </object>

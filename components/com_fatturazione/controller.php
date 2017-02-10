@@ -25,17 +25,32 @@ class FatturazioneController extends JControllerLegacy
 			
 	}
 	public function dettaglioFattura($cachable = false, $urlparams = false){
+		
 		$model = $this->getModel('fatture');
 		$view = $this->getView('dettaglio','html');
 		$view->setModel($model);
 		$view->display();
 		
 	}
-	public function preparaFattura($cachable = false, $urlparams = false){
-		
-	}
+	
 	public function save($cachable = false, $urlparams = false){
+		$input = JFactory::getApplication()->input;
 		
+		$fattura = array( 
+				'id' => $input->getCmd('id'),
+				'codice_fattura' => '143223423', //TODO: remove hardcoding here
+				'progressivo' => 1, //TODO: remove hardcoding here
+				'mese' => $input->getCmd('mese'),
+				'anno' => $input->getCmd('anno'),
+				'mail_inviata' =>  0, //TODO: remove hardcoding here
+				'filename' => ''
+		);
+		
+		$model = $this->getModel('fatture');
+		$model->save($fattura);
+		$view = $this->getView('dettaglio','html');
+		$view->setModel($model);
+		$view->display();
 	}
 	
 }
