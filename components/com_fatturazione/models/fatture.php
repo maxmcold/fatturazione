@@ -39,15 +39,17 @@ class FatturazioneModelFatture extends JModelItem
 	public function save($fattura){
 		JLoader::register('FPDF', JPATH_LIBRARIES.'/fpdfmy/FPDF.php');
 		$pdf = new FPDF();
-		$pdf->Output('F',JPATH_COMPONENT .'/test.pdf');//.$this->Fattura->filename);
+		$this->setPDFstream($fattura,$pdf);
+		$pdf->Output('F',JPATH_COMPONENT .'/'.$fattura->filename);
+		
 	}
-	private function setPDFstream(&$fattura, &$document){
+	private function setPDFstream(&$fattura, $document){
 		
 		if (!is_array($fattura) || !$document) return false;
 		$document->AddPage();
 		$document->SetFont('Arial','B',16);
-		$document->Cell(40,10,'ciccio bacicchio!');
-		$fattura['filename'] = uniqid($fattura['anno'].$fattura['mese']."_");
+		$document->Cell(40,10,'ciccio bacicchio!'); //TODO: real document here
+		$fattura['filename'] = uniqid($fattura['anno'].$fattura['mese']."_").'.pdf';
 		return true;
 		
 	}

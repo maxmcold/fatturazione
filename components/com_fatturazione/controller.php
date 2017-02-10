@@ -15,7 +15,11 @@ class FatturazioneController extends JControllerLegacy
 	{
 		parent::display($cachable,$urlparams);
 	}
-
+	
+	//backward compatibility
+	public function lista($cachable = false, $urlparams = false){
+		$this->listaFatture($cachable = false, $urlparams = false);
+	}
 	public function listaFatture($cachable = false, $urlparams = false){
 		
 		$model = $this->getModel('fatture');

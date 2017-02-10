@@ -21,8 +21,10 @@ foreach ($this->ListaFatture as $fattura){ ?>
 	
 <?php }?>
 <p>crea una nuova fattura<form action="index.php?option=com_fatturazione&task=save">
-<p><input type='text' name='mese'>
-<p><input type='text' name='anno'>
+<input type='hidden' name='option' value='com_fatturazione'>
+<input type='hidden' name='task' value='save'>
+<p>Mese: <input type='text' name='mese'>
+<p>Anno: <input type='text' name='anno'>
 <p><input type='submit' name='send'>
 
 </form>
