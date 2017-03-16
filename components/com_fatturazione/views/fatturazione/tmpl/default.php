@@ -20,7 +20,7 @@ Mese:<br/>
 <input type="submit" value="crea PDF">
 </Form>
 
-<p><a href="?option=com_fatturazione&task=list">lista fatture</a>
+<p><a href="?option=com_fatturazione&task=listaFatture">lista fatture</a>
 <p><a href="?option=com_fatturazione&task=new">nuova fattura</a>
 
 <?php 

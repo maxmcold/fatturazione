@@ -18,5 +18,15 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 
 
-<object data="<?php echo JURI::base(false).'components/com_fatturazione/test.pdf'?>" type="application/pdf" width="100%" height="500">
+<object data="<?php echo JURI::base(false).'components/com_fatturazione/fatture/temp/'.$this->Fattura['filename']?>" type="application/pdf" width="100%" height="500">
   </object>
+<p><a href="<?php echo JURI::base(false).'components/com_fatturazione/fatture/'.$this->Fattura['filename']?>"">download</a></p>
+<form action="index.php">
+    <?php foreach ($this->Fattura as $key -> $value){?>
+    <input type='hidden' name='<?php echo $key?>' value='<?php echo $value?>'>
+    <?php }?>
+    <input type='hidden' name='option' value='com_fatturazione'>
+    <input type='hidden' name='task' value='save'>
+    <input type='submit' name='send' value="salva">
+
+    </form>

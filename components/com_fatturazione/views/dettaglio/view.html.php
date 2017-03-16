@@ -25,19 +25,16 @@ class FatturazioneViewDettaglio extends JViewLegacy
 	function display($tpl = null)
 	{
 		$input = JFactory::getApplication()->input;
-		$id = $input->getCmd('id');
+        $model = $this->getModel('fatture');
+        $id = ($input->getCmd('id')) ? $input->getCmd('id') : $model->id;
+
+
 		if (!$id){
 			JFactory::getApplication()->enqueueMessage(JText::_('Fattura richiesta non trovata'), 'error');
 			return false;
 		}
-		// Assign data to the view
-		$model = $this->getModel('fatture');
-		if($model) $this->Fattura = $model->getFattura($id);
-		if($this->Fattura){
-			JLoader::register('FPDF', JPATH_LIBRARIES.'/fpdfmy/FPDF.php');
-			$pdf = new FPDF();
-			$pdf->Output('F',JPATH_COMPONENT .'/test.pdf');//.$this->Fattura->filename);
-		}
+
+		$this->Fattura = $model->getFattura($id);
 		// Display the view
 		parent::display($tpl);
 	}
