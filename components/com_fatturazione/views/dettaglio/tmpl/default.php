@@ -14,7 +14,6 @@ defined('_JEXEC') or die('Restricted access');
 <p><a href="?option=com_fatturazione&task=list">lista fatture</a>
 <p><a href="?option=com_fatturazione&task=new">nuova fattura</a>
 <p><?php 
-//r_dump($this->Fattura);
 ?>
 
 

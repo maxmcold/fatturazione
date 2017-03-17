@@ -8,7 +8,7 @@ class FatturazioneModelFatture extends JModelItem
     public $fattura = array();
     public $fileAbsPath;
     private $finalFilePath = JPATH_COMPONENT .'/fatture/';
-    private $tempFilePath = $finalFilePath."/temp/";
+    private $tempFilePath =  JPATH_COMPONENT ."/fatture/temp/";
 
     private $months = array(
             1 => 'Gennaio',
@@ -59,14 +59,10 @@ class FatturazioneModelFatture extends JModelItem
         }
         return $result;
     }
-    public function getFattura($id){
-		
-		$id = (!$id) ? $this->id : $id;
-        if (!$id){ //check if in preview mode
-            JFactory::getApplication()->enqueueMessage(JText::_('Fattura richiesta non trovata'), 'error');
-            return false;
-        }
-        return $this->getFatturaFromDB($id);
+    public function getFattura($id = 0){
+
+		if (!$id) return $this->fattura;
+		return $this->getFatturaFromDB($id);
 
 
 
@@ -78,7 +74,8 @@ class FatturazioneModelFatture extends JModelItem
 
 
 
-        $filepath = $this->tempFilePath;
+        $filepath = ($commit) ? $this->finalFilePath : $this->tempFilePath;
+
         //Store file
         JLoader::register('FPDF', JPATH_LIBRARIES.'/fpdfmy/FPDF.php');
         $this->pdf = new FPDF();
@@ -91,25 +88,25 @@ class FatturazioneModelFatture extends JModelItem
         $this->fattura = $fattura;
         if (!$commit) return $fattura;
 
-            //store db entry
-            $db = JFactory::getDbo();
-            $query = "INSERT INTO #__fatturazione(id,codice_fattura,progressivo,mese,anno,mail_inviata,filename) VALUES (".
-                "".$fattura['id'].",".
-                "'".$fattura['codice_fattura']."',".
-                "'".$fattura['progressivo']."',".
-                "".$fattura['mese'].",".
-                "".$fattura['anno'].",".
-                "".$fattura['mail_inviata'].",".
-                "'".$fattura['filename']."'".
-                ")";
-            $db->setQuery($query);
-            $db->execute();
+        //store db entry
+        $db = JFactory::getDbo();
+        $query = "INSERT INTO #__fatturazione(id,codice_fattura,progressivo,mese,anno,mail_inviata,filename) VALUES (".
+            "".$fattura['id'].",".
+            "'".$fattura['codice_fattura']."',".
+            "'".$fattura['progressivo']."',".
+            "".$fattura['mese'].",".
+            "".$fattura['anno'].",".
+            "".$fattura['mail_inviata'].",".
+            "'".$fattura['filename']."'".
+            ")";
+        $db->setQuery($query);
+        $db->execute();
 
-            //if commit then move from temporary folder to store folder
-            copy($tempFilePath.$fattura['filename'],$finalFilePath.$fattura['filename']);
-            ulink($tempFilePath.$fattura['filename']);
-            return $fattura;
-        }
+        //if commit then move from temporary folder to store folder
+        copy($this->tempFilePath.$fattura['filename'],$this->finalFilePath.$fattura['filename']);
+        unlink($this->tempFilePath.$fattura['filename']);
+        return $fattura;
+
 
 	}
     public function getLastIncremental($year){

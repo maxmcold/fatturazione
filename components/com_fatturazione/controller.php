@@ -63,6 +63,7 @@ class FatturazioneController extends JControllerLegacy
 	}
 
     public function createDoc(){
+
         JSession::checkToken('request') or jexit('Invalid token:custom msg'); //JText::_('JINVALID_TOKEN')
         $input = JFactory::getApplication()->input;
         $model = $this->getModel('fatture');
@@ -85,6 +86,7 @@ class FatturazioneController extends JControllerLegacy
 
         $view = $this->getView('dettaglio','html');
         $view->setModel($model);
+        $view->previewMode = true;
         $view->display();
 
 
